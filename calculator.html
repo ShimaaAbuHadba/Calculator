@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>calculator</title>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+	<div class="calculators">
+		<form action="#" name="form">
+			<div class="result">
+				<input type="text" name="disp" id="disp">
+			</div>
+			<div class="buttons">
+				<div class="row">
+					<input type="button" value="7" name="v7"on onclick="val(v7.value)">
+					<input type="button" value="8" name="v8"on onclick="val(v8.value)">
+					<input type="button" value="9" name="v9"on onclick="val(v9.value)">
+					<input type="button" value="+" name="add"on onclick="val(add.value)">
+				</div>
+				<div class="row">
+					<input type="button" value="4" name="v4"on onclick="val(v4.value)">
+					<input type="button" value="5" name="v5"on onclick="val(v5.value)">
+					<input type="button" value="6" name="v6"on onclick="val(v6.value)">
+					<input type="button" value="-" name="sub"on onclick="val(sub.value)">
+				</div>
+				<div class="row">
+					<input type="button" value="1" name="v1"on onclick="val(v1.value)">
+					<input type="button" value="2" name="v2"on onclick="val(v2.value)">
+					<input type="button" value="3" name="v3"on onclick="val(v3.value)">
+					<input type="button" value="*" name="mul"on onclick="val(mul.value)">
+				</div>
+				<div class="row">
+					<input type="button" value="0" name="v0"on onclick="val(v0.value)">
+					<input type="button" value="." name="vdot"on onclick="val(vdot.value)">
+					<input type="button" value="/" name="div"on onclick="val(div.value)">
+					<input type="button" title="click two times to clear result" value="="  name="veq"on onclick="calculate()">
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="vanilla-tilt.js"></script>
+	<script>
+		function val(result){
+			form.disp.value = form.disp.value + result ;
+		}
+		function calculate(){
+		if (form.disp.value=="") {
+			alert("please enter number");
+		}else{
+			form.disp.value = eval(form.disp.value);
+
+		}
+	}
+	var btn = form.veq;
+	btn.addEventListener('dblclick',function(){
+		form.disp.value = "";// when we click on equal button the result will be clear 
+
+	});
+	VanillaTilt.init(document.querySelector(".calculators"), {
+		max: 25,
+		speed: 400
+	});
+</script>
+	
+
+	
+	
+
+</body>
+</html>
